@@ -45,3 +45,5 @@ alias eb="bind '\"\e[4~\":end-of-line'"
 # Upper/lowercase magic
 alias toupper="tr '[:lower:]' '[:upper:]'"
 alias tolower="tr '[:upper:]' '[:lower:]'"
+
+export LS_OPTIONS="--color"
