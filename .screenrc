@@ -1,0 +1,10 @@
+startup_message off
+
+# Turn on flow control
+flow on
+
+# Hardstatus line displays hostname and clock while caption line displays tab view of open screens
+hardstatus on
+hardstatus alwayslastline
+hardstatus string "%{= kc} [%H] %=%=[%D] [%m/%d/%Y] [%C %A] "
+caption always "%{= dc} %=%{.dc}%-w%{= k.}%{B} %n %t %{= .dc}%?%{= .dc}%+w%? %{= dc}%="
