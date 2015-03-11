@@ -33,8 +33,9 @@ if find /usr/share/terminfo -type f | grep xterm-256color > /dev/null; then
 else
     export TERM=xterm
 fi
+
 export LD_LIBRARY_PATH=/home/aminshi/lib
-export PERL5LIB=/home/aminshi/lib/site_perl/5.18.1/x86_64-linux
+export PERL5LIB=/home/aminshi/lib/perl
 
 # Home and End button magic
 bind '"\e[1~":beginning-of-line'
