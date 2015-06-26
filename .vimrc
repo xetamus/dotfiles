@@ -1,6 +1,7 @@
 " ~/.vimrc (configuration file for vim only)
 
 set nocompatible
+set shell=/bin/sh
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
