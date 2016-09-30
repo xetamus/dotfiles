@@ -34,8 +34,8 @@ else
     export TERM=xterm
 fi
 
-export LD_LIBRARY_PATH=/home/aminshi/lib
-export PERL5LIB=/home/aminshi/lib/perl
+export LD_LIBRARY_PATH=~/lib:${LD_LIBRARY_PATH}
+export PERL5LIB=~/lib/perl:${PERL5LIB}
 
 # Home and End button magic
 bind '"\e[1~":beginning-of-line'

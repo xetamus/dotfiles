@@ -1,0 +1,53 @@
+conky.config = {
+  background = false,
+  color0 = '',
+  color1 = '',
+  color2 = '',
+  color3 = '',
+  color4 = '',
+  console_graph_ticks = 'a,b,c,d',
+  default_bar_width = 6,
+  extra_newline = false,
+  out_to_x = false,
+  out_to_console = true,
+  short_units = true,
+  temperature_unit = 'fahrenheit',
+  template0 = 'ff0000', -- red color for bars (no bueno)
+  template1 = 'ffdd00', -- orange color for bars (meeehh)
+  template2 = 'ddff00', -- yellow color for bars (okay)
+  template3 = "00ff00", -- green color for bars (good)
+  top_cpu_separate = false,
+  use_xft = true
+}
+
+conky.text = [[
+%{c}\
+Host: $nodename \
+Kernel: $kernel \
+Uptime: $uptime [${loadavg 1} ${loadavg 2} ${loadavg 3}] \
+\
+CPU (${cpu 0}%) [\
+${if_match ${battery_percent BAT0} >= 75}%{F\#${template0}}${endif}\
+${if_match ${battery_percent BAT0} >= 50}%{F\#${template1}}${endif}\
+${if_match ${battery_percent BAT0} >= 25}%{F\#${template2}}${endif}\
+${if_match ${battery_percent BAT0} >= 00}%{F\#${template3}}${endif}\
+${cpubar}%{F-}] \
+\
+%{r}\
+\
+RAM ($mem) [\
+${if_match ${battery_percent BAT0} >= 75}%{F\#${template0}}${endif}\
+${if_match ${battery_percent BAT0} >= 50}%{F\#${template1}}${endif}\
+${if_match ${battery_percent BAT0} >= 25}%{F\#${template2}}${endif}\
+${if_match ${battery_percent BAT0} >= 00}%{F\#${template3}}${endif}\
+${membar}%{F-}] \
+\
+BAT ($battery_percent%) [\
+${if_match ${battery_percent BAT0} >= 00}%{F\#${template0}}${endif}\
+${if_match ${battery_percent BAT0} >= 25}%{F\#${template1}}${endif}\
+${if_match ${battery_percent BAT0} >= 50}%{F\#${template2}}${endif}\
+${if_match ${battery_percent BAT0} >= 75}%{F\#${template3}}${endif}\
+${battery_bar BAT0}%{F-}] \
+\
+${time %a %m-%d [%I:%M:%S]}
+]]
