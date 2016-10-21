@@ -11,8 +11,9 @@ fi
 x=${geometry[0]}
 y=${geometry[1]}
 panel_width=${geometry[2]}
-panel_height=16
-font="-*-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+panel_height=20
+#font="-*-fixed-*-*-*-*-12-*-*-*-*-*-*-*"
+font="dweep"
 bgcolor=$(hc get frame_border_normal_color)
 selbg=$(hc get window_border_active_color)
 selfg='#101010'
@@ -81,6 +82,7 @@ hc pad $monitor $panel_height
         ### Output ###
         # This part prints dzen data based on the _previous_ data handling run,
         # and then waits for the next event to happen.
+        battery="$(cat /sys/class/power_supply/*/capacity)%"
 
         bordercolor="#26221C"
         separator="^bg()^fg($selbg)|"
@@ -117,11 +119,11 @@ hc pad $monitor $panel_height
         echo -n "$separator"
         echo -n "^bg()^fg() ${windowtitle//^/^^}"
         # small adjustments
-        right="$separator^bg() $date $separator"
-        right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
+        #right="$separator^bg() $date $separator $battery $seperator"
+        #right_text_only=$(echo -n "$right" | sed 's.\^[^(]*([^)]*)..g')
         # get width of right aligned text.. and add some space..
-        width=$($textwidth "$font" "$right_text_only    ")
-        echo -n "^pa($(($panel_width - $width)))$right $(cat /sys/class/power_supply/*/capacity)%"
+        #width=$($textwidth "$font" "$right_text_only")
+        #echo -n "^pa($(($panel_width - $width)))$right"
         echo
 
         ### Data handling ###

@@ -1,53 +1,196 @@
+--[[
+
+BG Colors:
+  %{B\#00487c}
+  %{B\#009ddc}
+  %{B\#0d1321}
+  %{B\#3c6997}
+
+FG Colors:
+  %{F\#EDF7F6}
+  %{F\#ff2606}
+  %{F\#ff9696}
+  %{F\#ffa696}
+  %{F\#ffb696}
+  %{F\#ffc696}
+  %{F\#ffff96}
+  %{F\#c6ff96}
+  %{F\#b6ff96}
+  %{F\#a6ff96}
+  %{F\#26ff06}
+
+]]
+
 conky.config = {
   background = false,
-  color0 = '',
-  color1 = '',
-  color2 = '',
-  color3 = '',
-  color4 = '',
-  console_graph_ticks = 'a,b,c,d',
-  default_bar_width = 6,
+  default_bar_width = 10,
   extra_newline = false,
   out_to_x = false,
   out_to_console = true,
   short_units = true,
   temperature_unit = 'fahrenheit',
-  template0 = 'ff0000', -- red color for bars (no bueno)
-  template1 = 'ffdd00', -- orange color for bars (meeehh)
-  template2 = 'ddff00', -- yellow color for bars (okay)
-  template3 = "00ff00", -- green color for bars (good)
+-- Color values range from red to green
+  template0 = 'ff2606',
+  template1 = 'ff9696',
+  template2 = 'ffb696',
+  template3 = "ffd696",
+  template4 = "fff696",
+  template5 = "f6ff96",
+  template6 = "d6ff96",
+  template7 = "b6ff96",
+  template8 = "96ff96",
+  template9 = "26ff06",
   top_cpu_separate = false,
   use_xft = true
 }
 
 conky.text = [[
-%{c}\
-Host: $nodename \
-Kernel: $kernel \
-Uptime: $uptime [${loadavg 1} ${loadavg 2} ${loadavg 3}] \
+%{l}\
 \
-CPU (${cpu 0}%) [\
-${if_match ${battery_percent BAT0} >= 75}%{F\#${template0}}${endif}\
-${if_match ${battery_percent BAT0} >= 50}%{F\#${template1}}${endif}\
-${if_match ${battery_percent BAT0} >= 25}%{F\#${template2}}${endif}\
-${if_match ${battery_percent BAT0} >= 00}%{F\#${template3}}${endif}\
-${cpubar}%{F-}] \
+\
+\
+\
+%{B\#00487c}\
+  $nodename ($uptime) \
+%{B-}\
+\
+\
+\
+\
+%{B\#009ddc}\
+ ${loadavg 1} ${loadavg 2} ${loadavg 3} \
+%{B-}\
+\
+\
+\
+\
+%{B\#3c6997}\
+  \
+${if_match ${cpu cpu0} <= 10}%{F\#$template9}$else\
+${if_match ${cpu cpu0} <= 20}%{F\#$template8}$else\
+${if_match ${cpu cpu0} <= 30}%{F\#$template7}$else\
+${if_match ${cpu cpu0} <= 40}%{F\#$template6}$else\
+${if_match ${cpu cpu0} <= 50}%{F\#$template5}$else\
+${if_match ${cpu cpu0} <= 60}%{F\#$template4}$else\
+${if_match ${cpu cpu0} <= 70}%{F\#$template3}$else\
+${if_match ${cpu cpu0} <= 80}%{F\#$template2}$else\
+${if_match ${cpu cpu0} <= 90}%{F\#$template1}$else\
+${if_match ${cpu cpu0} <= 100}%{F\#$template0}$endif\
+$endif$endif$endif$endif$endif$endif$endif$endif$endif\
+$cpubar ${cpu  0}% \
+%{B-}%{F-}\
+\
+\
+\
+\
+%{B\#00487c}\
+  \
+${if_match $memperc <= 10}%{F\#$template9}$else\
+${if_match $memperc <= 20}%{F\#$template8}$else\
+${if_match $memperc <= 30}%{F\#$template7}$else\
+${if_match $memperc <= 40}%{F\#$template6}$else\
+${if_match $memperc <= 50}%{F\#$template5}$else\
+${if_match $memperc <= 60}%{F\#$template4}$else\
+${if_match $memperc <= 70}%{F\#$template3}$else\
+${if_match $memperc <= 80}%{F\#$template2}$else\
+${if_match $memperc <= 90}%{F\#$template1}$else\
+${if_match $memperc <= 100}%{F\#$template0}$endif\
+$endif$endif$endif$endif$endif$endif$endif$endif$endif\
+$membar $mem \
+%{B-}%{F-}\
+\
+\
+\
+\
+%{c}\
+\
+\
+\
+\
+%{A:st ncmpcpp &:} %{A} \
+$if_mpd_playing\
+${scroll left 30 4 $mpd_artist - $mpd_title} $mpd_elapsed/$mpd_length \
+$endif\
+%{A:mpc prev &:}%{A} \
+%{A:mpc play &:}%{A} \
+%{A:mpc pause &:}%{A} \
+%{A:mpc stop &:}%{A} \
+%{A:mpc next &:}%{A} \
+\
+\
+\
+\
 \
 %{r}\
 \
-RAM ($mem) [\
-${if_match ${battery_percent BAT0} >= 75}%{F\#${template0}}${endif}\
-${if_match ${battery_percent BAT0} >= 50}%{F\#${template1}}${endif}\
-${if_match ${battery_percent BAT0} >= 25}%{F\#${template2}}${endif}\
-${if_match ${battery_percent BAT0} >= 00}%{F\#${template3}}${endif}\
-${membar}%{F-}] \
 \
-BAT ($battery_percent%) [\
-${if_match ${battery_percent BAT0} >= 00}%{F\#${template0}}${endif}\
-${if_match ${battery_percent BAT0} >= 25}%{F\#${template1}}${endif}\
-${if_match ${battery_percent BAT0} >= 50}%{F\#${template2}}${endif}\
-${if_match ${battery_percent BAT0} >= 75}%{F\#${template3}}${endif}\
-${battery_bar BAT0}%{F-}] \
 \
-${time %a %m-%d [%I:%M:%S]}
+\
+${if_match "${addr enp4s0}" != "No Address"}\
+%{B\#009ddc}\
+   \
+${addr enp4s0} \
+%{B-}\
+$endif\
+\
+\
+\
+\
+%{B\#3c6997}\
+${if_match "${addr wlp5s0}" != "No Address"}\
+%{A:st wicd-curses &:}\
+${if_match ${wireless_link_qual_perc wlp5s0} <= 33}%{F\#$template0}  $else\
+${if_match ${wireless_link_qual_perc wlp5s0} <= 66}%{F\#$template5}  $else\
+${if_match ${wireless_link_qual_perc wlp5s0} <= 100}%{F\#$template9}  $endif\
+$endif$endif\
+%{A}\
+${wireless_essid wlp5s0} (${wireless_link_qual_perc wlp5s0}%) ${addr wlp5s0} \
+%{B-}%{F-}\
+$endif\
+\
+\
+\
+\
+%{B\#00487c}\
+${if_match "${execi 3 cat /sys/class/power_supply/BAT0/status}" == "Charging"}  $else\
+${if_match ${battery_percent BAT0} <= 10}%{F\#$template0}  $else\
+${if_match ${battery_percent BAT0} <= 20}%{F\#$template1}  $else\
+${if_match ${battery_percent BAT0} <= 30}%{F\#$template2}  $else\
+${if_match ${battery_percent BAT0} <= 40}%{F\#$template3}  $else\
+${if_match ${battery_percent BAT0} <= 50}%{F\#$template4}  $else\
+${if_match ${battery_percent BAT0} <= 60}%{F\#$template5}  $else\
+${if_match ${battery_percent BAT0} <= 70}%{F\#$template6}  $else\
+${if_match ${battery_percent BAT0} <= 80}%{F\#$template7}  $else\
+${if_match ${battery_percent BAT0} <= 90}%{F\#$template8}  $else\
+${if_match ${battery_percent BAT0} <= 100}%{F\#$template9}  $endif\
+$endif$endif$endif$endif$endif$endif$endif$endif$endif$endif\
+\
+$battery_percent% \
+%{B-}%{F-}\
+\
+\
+\
+\
+%{B\#009ddc}\
+  \
+${time %a %F} \
+%{B-}\
+\
+\
+\
+\
+%{B\#3c6997}\
+  \
+${time %I:%M:%S} \
+%{B-}\
+\
+\
+\
+\
+%{B-}%{F-} \
+\
+\
+\
+\
+%{A:st powercontrol.sh:}%{A} \
 ]]

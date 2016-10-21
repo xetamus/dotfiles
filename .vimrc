@@ -48,7 +48,7 @@ set backspace=2
 set ic
 
 " Toggle paste-mode with ctrl+h (any mode)
-set pastetoggle=<c-H>
+set pastetoggle=<c-Y>
 
 " Buffer magic
 set hidden
@@ -109,7 +109,6 @@ Plugin 'ap/vim-buftabline'
 
 " Colorschemes
 Plugin 'whatyouhide/gotham'
-Plugin 'kossnocorp/up.vim'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'gregsexton/Muon'
 Plugin 'Lokaltog/vim-distinguished'
@@ -161,6 +160,6 @@ let g:syntastic_check_on_wq = 0
 if ( $TERM == 'xterm-256color' )
     set t_Co=256
 endif
-colorscheme gotham256
+colorscheme jellybeans
 
 " ~/.vimrc ends here
