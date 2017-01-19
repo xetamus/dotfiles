@@ -112,6 +112,7 @@ Plugin 'whatyouhide/gotham'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'gregsexton/Muon'
 Plugin 'Lokaltog/vim-distinguished'
+Plugin 'w0ng/vim-hybrid'
 
 "
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -157,9 +158,8 @@ let g:syntastic_check_on_wq = 0
 
 
 " Color stuff
-if ( $TERM == 'xterm-256color' )
-    set t_Co=256
-endif
-colorscheme jellybeans
+set t_Co=256
+set background=dark
+colorscheme hybrid
 
 " ~/.vimrc ends here
