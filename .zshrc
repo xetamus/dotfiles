@@ -22,7 +22,8 @@ source ~/bin/antigen.zsh
 antigen use oh-my-zsh
 antigen bundle git
 
-if [ -z ${SSH_SOURCE_CB} ]; then
+if [ -z ${SSH_CLIENT} ]; then
+  POWERLEVEL9K_MODE="nerdfonts-complete"
   POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator status history vcs dir)
   POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(context battery time)
   POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
