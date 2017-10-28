@@ -113,6 +113,20 @@ Plugin 'cocopon/iceberg.vim'
 Plugin 'gregsexton/Muon'
 Plugin 'Lokaltog/vim-distinguished'
 Plugin 'w0ng/vim-hybrid'
+Plugin 'jacoborus/tender.vim'
+
+" Go!
+Plugin 'fatih/vim-go'
+let g:syntastic_go_checkers = ['go']
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+au BufReadPost *.go set syntax=go
+
 
 "
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -135,13 +149,13 @@ filetype plugin indent on    " required
 " lightline settings
 set laststatus=2
 " Uncomment after powerline fonts are installed
-"let g:lightline = {
-"  \ 'component': {
-"  \    'readonly': '%{&readonly?"":""}',
-"  \ },
-"  \ 'separator': { 'left': '', 'right': '' },
-"  \ 'subseparator': { 'left': '', 'right': '' }
-"\ } " make it look like powerline
+let g:lightline = {
+  \ 'component': {
+  \    'readonly': '%{&readonly?"":""}',
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
+  \} " make it look like powerline
 
 " syntastic settings
 set statusline+=%#warningmsg#
@@ -160,6 +174,8 @@ let g:syntastic_check_on_wq = 0
 " Color stuff
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme tender
+
+set viminfo='20,<1000
 
 " ~/.vimrc ends here
