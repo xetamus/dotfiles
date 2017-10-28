@@ -18,12 +18,12 @@ module.exports = {
     // set to `true` if you're using a Linux set up
     // that doesn't shows native menus
     // default: `false` on Linux, `true` on Windows (ignored on macOS)
-    showHamburgerMenu: '',
+    showHamburgerMenu: 'false',
 
     // set to `false` if you want to hide the minimize, maximize and close buttons
     // additionally, set to `'left'` if you want them on the left, like in Ubuntu
     // default: `true` on windows and Linux (ignored on macOS)
-    showWindowControls: '',
+    showWindowControls: 'left',
 
     // custom padding (css format, i.e.: `top right bottom left`)
     padding: '12px 14px',
@@ -56,74 +56,10 @@ module.exports = {
     //  lightWhite:   '#'
     //},
 
-    foregroundColor: '#cbcbcb',
-    backgroundColor: "#1e1e1e",
-    borderColor: '#0a0a0a',
-    cursorColor: '#9bc4bd',
-
-    // simple basic colors - http://dotshare.it/dots/464/
-    colors: {
-      black:        '#2E3436',
-      lightBlack:   '#4a575a',
-      red:          '#CC0000',
-      lightRed:     '#EF2929',
-      green:        '#4E9A06',
-      lightGreen:   '#8AE234',
-      yellow:       '#C4A000',
-      lightYellow:  '#FCE94F',
-      blue:         '#3465A4',
-      lightBlue:    '#729FCF',
-      magenta:      '#75507B',
-      lightMagenta: '#AD7FA8',
-      cyan:         '#06989A',
-      lightCyan:    '#34E2E2',
-      white:        '#e6e3c6',
-      lightWhite:   '#EEEEEC'
-    },
-
-    // nyquil - http://dotshare.it/dots/532/
-    //colors: {
-    //  black:        '#151515',
-    //  lightBlack:   '#666666',
-    //  red:          '#ff005b',
-    //  lightRed:     '#ff00a0',
-    //  green:        '#cee318',
-    //  lightGreen:   '#ccff00',
-    //  yellow:       '#ffe755',
-    //  lightYellow:  '#ff9f00',
-    //  blue:         '#048ac7',
-    //  lightBlue:    '#48c6ff',
-    //  magenta:      '#833c9f',
-    //  lightMagenta: '#be67e1',
-    //  cyan:         '#0ac1cd',
-    //  lightCyan:    '#63e7f0',
-    //  white:        '#e4e4e4',
-    //  lightWhite:   '#f3f3f3'
-    //},
-
-    // X::DotShare - http://dotshare.it/dots/87 (inverted)
-    //foregroundColor: '#D7D0C7',
-    //backgroundColor: "#151515",
-    //borderColor: '#151515',
-    //cursorColor: '#ff8939',
-    //colors: {
-    //  black:        '#101010',
-    //  red:          '#e84f4f',
-    //  green:        '#b8d68c',
-    //  yellow:       '#e1aa5d',
-    //  blue:         '#7dc1cf',
-    //  magenta:      '#9b64fb',
-    //  cyan:         '#6d878d',
-    //  white:        '#dddddd',
-    //  lightBlack:   '#404040',
-    //  lightRed:     '#d23d3d',
-    //  lightGreen:   '#a0cf5d',
-    //  lightYellow:  '#f39d21',
-    //  lightBlue:    '#4e9fb1',
-    //  lightMagenta: '#8542ff',
-    //  lightCyan:    '#42717b',
-    //  lightWhite:   '#dddddd'
-    //},
+    //foregroundColor: '#cbcbcb',
+    //backgroundColor: "#1e1e1e",
+    //borderColor: '#0a0a0a',
+    //cursorColor: '#9bc4bd',
 
     // Default Colors
     //foregroundColor: '#E8EAEC',
@@ -171,7 +107,12 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
 
     // hyperterm-summon keyboard shortcut
-    summonShortcut: 'Alt+Shift+T'
+    summonShortcut: 'Alt+Shift+T',
+
+    // Transparency
+    hyperTransparentDynamic: {
+      alpha: 1
+    }
   },
 
   // a list of plugins to fetch and install from npm
@@ -180,7 +121,22 @@ module.exports = {
   //   `hyperpower`
   //   `@company/project`
   //   `project#1.0.1`
-  plugins: ['hyper-tab-icons', 'hyperterm-summon', "hyper-markdown-preview"],
+  plugins: [
+    //"hyper-quantum-black",
+    "hyper-ayu",
+    //"hyperterm-material",
+    //"hyperpanic",
+    //"hyperterm-dark-macos",
+    "hyper-statusline",
+    "hyperterm-dibdabs",
+    "hyperterm-bold-tab",
+    'hyper-tab-icons',
+    'hyperterm-summon',
+    "hyper-markdown-preview",
+    "hyper-transparent-dynamic",
+    "hyperterm-tabs",
+    "hyper-vsplit-fix",
+  ],
 
   // in development, you can create a directory under
   // `~/.hyper_plugins/local/` and include it here
