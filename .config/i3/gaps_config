@@ -9,23 +9,15 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
-
-
-hide_edge_borders vertical
-
-
-bindsym $mod+n exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
-
-exec tilda 
-
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+font pango:Dina 10
+
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 #font pango:DejaVu Sans Mono 8
-font pango:Tamsyn Regular 10 
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -39,19 +31,11 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec hyper
-
-# run prompt floating
-for_window [title="bashrun"] floating enable
-bindsym $mod+F2 exec bashrun
-
-# start a chrome instance
-bindsym $mod+c exec chromium
+bindsym $mod+Shift+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -88,7 +72,7 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -164,8 +148,29 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# Display workspaces
 bar {
-        status_command i3status
+  workspace_buttons yes
 }
+
+### Gaps ###
+set $default_gaps_inner 15
+set $default_gaps_outer 5
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
+
+# Parade Floats Section
+for_window [class="Gnome-font-viewer"] floating enable
+for_window [title="wicd-curses"] floating enable
+for_window [title="xfontsel"] floating enable
+
+# Extra Keybindings
+bindsym $mod+F2 exec dmenu_run -fn 'tewi' -b
+
+# Start-up applications
+exec blueman-applet
+exec stack
+exec mopidy
+exec "conky | lemonbar -u 0 -B '#0d1321' -F '#edf7f8' -f '-*-tewi-*' -f '-*-siji-*' -f 'icomoon' | zsh"
+exec stalonetray
+
