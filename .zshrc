@@ -33,5 +33,6 @@ fi
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(battery root_indicator time status history context dir vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
+POWERLEVEL9K_BATTERY_STAGES=('' '')
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 antigen theme bhilburn/powerlevel9k
