@@ -1,0 +1,45 @@
+URxvt*font: xft:ProFontWindows Nerd Font Mono:size=10
+URxvt*boldFont: xft:ProFontWindows Nerd Font Mono
+URxvt.letterSpace: 0
+
+*foreground: #eceff1
+*background: #162228
+*.cursorColor: #009688
+*.color0: #263238
+*.color1: #ff5252
+*.color2: #9ccc65
+*.color3: #fee94e
+*.color4: #2b98f0
+*.color5: #b38bfc
+*.color6: #68b6f3
+*.color7: #eceff1
+*.color8: #617d8a
+*.color9: #fc625d
+*.color10: #9ccc65
+*.color11: #fee94e
+*.color12: #2b98f0
+*.color13: #b38bfc
+*.color14: #68b6f3
+*.color15: #ffffff
+
+#ifdef DARWIN_ENV
+URxvt.perl-lib: ~/lib/urxvt/perl
+URxvt.perl-ext-common: macosx-clipboard
+URxvt*keysym.M-c: perl:macosx-clipboard:copy
+URxvt*keysym.M-v: perl:macosx-clipboard:paste
+#endif
+
+URxvt.termName: xterm-256color
+URxvt.loginShell: True
+
+URxvt.skipScroll: False
+URxvt.scrollstyle: plain
+URxvt.scrollBar: False
+URxvt.scrollTtyOutput: False
+URxvt.scrollTtyKeypress: True
+URxvt.scrollWithBuffer: True
+
+URxvt.saveLines: 10000
+
+URxvt.backspaceKey: Backspace
+URxvt.deleteKey: Delete

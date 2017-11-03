@@ -1,0 +1,37 @@
+use Fcntl ();
+use locale;
+#use utf8;
+
+sub copy {
+   my ($self) = @_;
+
+   open(CLIPBOARD, "| pbcopy ");
+   print CLIPBOARD $self->locale_encode($self->selection);
+   close CLIPBOARD;
+   ()
+}
+
+sub paste {
+   my ($self) = @_;
+   my ($str);
+
+   $str = `pbpaste`;
+   $str =~ tr/\n/\r/;
+   # $self->tt_write($self->locale_encode($str));
+   $self->tt_write($str);
+   ()
+}
+
+sub on_user_command {
+   my ($self, $cmd) = @_;
+
+   if ($cmd eq "macosx-clipboard:copy") {
+      $self->copy;
+   }
+
+   if ($cmd eq "macosx-clipboard:paste") {
+      $self->paste;
+   }
+
+   ()
+}
