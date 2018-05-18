@@ -1,5 +1,9 @@
 module.exports = {
   config: {
+    // Choose either "stable" for receiving highly polished,
+    // or "canary" for less polished but more frequent updates
+    updateChannel: 'canary',
+
     // default font size in pixels for all tabs
     fontSize: 13,
 
@@ -55,6 +59,30 @@ module.exports = {
     //  white:        '#',
     //  lightWhite:   '#'
     //},
+    //
+    // Color Template
+    //foregroundColor: '#',
+    //backgroundColor: "#",
+    //borderColor: '#',
+    //cursorColor: '#',
+    //colors: {
+    //  black:        '#',
+    //  lightBlack:   '#',
+    //  red:          '#',
+    //  lightRed:     '#',
+    //  green:        '#',
+    //  lightGreen:   '#',
+    //  yellow:       '#',
+    //  lightYellow:  '#',
+    //  blue:         '#',
+    //  lightBlue:    '#',
+    //  magenta:      '#',
+    //  lightMagenta: '#',
+    //  cyan:         '#',
+    //  lightCyan:    '#',
+    //  white:        '#',
+    //  lightWhite:   '#'
+    //},
 
     //foregroundColor: '#cbcbcb',
     //backgroundColor: "#1e1e1e",
@@ -86,7 +114,7 @@ module.exports = {
 
     // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
     // if left empty, your system's login shell will be used by default
-    shell: '/usr/bin/env zsh',
+    shell: '',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: ['-i'])
     // by default ['--login'] will be used
@@ -106,12 +134,9 @@ module.exports = {
 
     // for advanced config flags please refer to https://hyper.is/#cfg
 
-    // hyperterm-summon keyboard shortcut
-    summonShortcut: 'Alt+Shift+T',
-
     // Transparency
     hyperTransparentDynamic: {
-      alpha: 1
+      alpha: .70
     }
   },
 
@@ -123,19 +148,17 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     //"hyper-quantum-black",
-    "hyper-ayu",
-    //"hyperterm-material",
+    //"hyper-ayu",
+    "hyperterm-material",
     //"hyperpanic",
     //"hyperterm-dark-macos",
-    "hyper-statusline",
     "hyperterm-dibdabs",
     "hyperterm-bold-tab",
     'hyper-tab-icons',
-    'hyperterm-summon',
     "hyper-markdown-preview",
     "hyper-transparent-dynamic",
     "hyperterm-tabs",
-    "hyper-vsplit-fix",
+    "hyper-vsplit-fix"
   ],
 
   // in development, you can create a directory under
