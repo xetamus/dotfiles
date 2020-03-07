@@ -138,6 +138,9 @@ Plugin 'w0ng/vim-hybrid'
 " Avoid a name conflict with L9
 "Plugin 'user/L9', {'name': 'newL9'}
 
+" Docker
+"Plugin 'ekalinin/Dockerfile.vim'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -164,6 +167,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
+map <C-I> :SyntasticToggleMode <Enter>
+highlight SyntasticErrorLine guibg=#2f0000
+
 " End Plugin Config
 
 
@@ -171,7 +177,7 @@ let g:syntastic_check_on_wq = 0
 " Color stuff
 set t_Co=256
 set background=dark
-colorscheme hybrid
+colorscheme base16-neko
 
 set viminfo='20,<1000
 
