@@ -1,26 +1,46 @@
-URxvt*font: xft:ProFontWindows Nerd Font Mono:size=10
-URxvt*boldFont: xft:ProFontWindows Nerd Font Mono
+URxvt*font: xft:Cascadia Mono PL:size=12
+URxvt*boldFont: xft:Cascadia Mono PL
 URxvt.letterSpace: 0
 
-*foreground: #eceff1
-*background: #162228
+! special
+*.background: #0c0c0c
+*.foreground: #d6d6d6
 *.cursorColor: #009688
-*.color0: #263238
-*.color1: #ff5252
-*.color2: #9ccc65
-*.color3: #fee94e
-*.color4: #2b98f0
-*.color5: #b38bfc
-*.color6: #68b6f3
-*.color7: #eceff1
-*.color8: #617d8a
-*.color9: #fc625d
-*.color10: #9ccc65
-*.color11: #fee94e
-*.color12: #2b98f0
-*.color13: #b38bfc
-*.color14: #68b6f3
-*.color15: #ffffff
+urxvt*depth: 32
+urxvt*background: rgba:00c0/00c0/00c0/e000
+
+! black
+*.color0:       #2a2e32
+*.color8:       #31363b
+
+! red
+*.color1:       #c0392b
+*.color9:       #f44f4f
+
+! green
+*.color2:       #218058
+*.color10:      #9fca56
+
+! yellow
+*.color3:       #fdbc4b
+*.color11:      #fdbc4b
+
+! blue
+*.color4:       #2980b9
+*.color12:      #0099ff
+
+! magenta
+*.color5:       #8e44ad
+*.color13:      #af81ff
+
+! cyan
+*.color6:       #27aeae
+*.color14:      #31dddd
+
+! white
+*.color7:       #acada1
+*.color15:      #cfd0c2
+
 
 #ifdef DARWIN_ENV
 URxvt.perl-lib: ~/lib/urxvt/perl
@@ -28,6 +48,11 @@ URxvt.perl-ext-common: macosx-clipboard
 URxvt*keysym.M-c: perl:macosx-clipboard:copy
 URxvt*keysym.M-v: perl:macosx-clipboard:paste
 #endif
+
+URxvt.perl-ext-common:  ...,clipboard,...
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
 
 URxvt.termName: xterm-256color
 URxvt.loginShell: True
@@ -39,7 +64,7 @@ URxvt.scrollTtyOutput: False
 URxvt.scrollTtyKeypress: True
 URxvt.scrollWithBuffer: True
 
-URxvt.saveLines: 10000
+URxvt.saveLines: 100000
 
 URxvt.backspaceKey: Backspace
 URxvt.deleteKey: Delete

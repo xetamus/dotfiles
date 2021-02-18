@@ -229,7 +229,7 @@ call <sid>hi("TabLineSel",    s:gui00, s:gui04, s:cterm00, s:cterm04, "none", ""
 " Standard syntax highlighting
 call <sid>hi("Boolean",      s:gui09, "", s:cterm09, "", "", "")
 call <sid>hi("Character",    s:gui08, "", s:cterm08, "", "", "")
-call <sid>hi("Comment",      s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("Comment",      s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("Conditional",  s:gui0E, "", s:cterm0E, "", "", "")
 call <sid>hi("Constant",     s:gui09, "", s:cterm09, "", "", "")
 call <sid>hi("Define",       s:gui0E, "", s:cterm0E, "", "none", "")
@@ -287,7 +287,7 @@ call <sid>hi("DiffRemoved",  s:gui09, s:gui00,  s:cterm09, s:cterm00, "", "")
 " Git highlighting
 call <sid>hi("gitcommitOverflow",       s:gui08, "", s:cterm08, "", "", "")
 call <sid>hi("gitcommitSummary",        s:gui0B, "", s:cterm0B, "", "", "")
-call <sid>hi("gitcommitComment",        s:gui03, "", s:cterm03, "", "", "")
+call <sid>hi("gitcommitComment",        s:gui05, "", s:cterm05, "", "", "")
 call <sid>hi("gitcommitUntracked",      s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("gitcommitDiscarded",      s:gui03, "", s:cterm03, "", "", "")
 call <sid>hi("gitcommitSelected",       s:gui03, "", s:cterm03, "", "", "")
