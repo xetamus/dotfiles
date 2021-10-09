@@ -1,0 +1,67 @@
+* {
+  accent:           #fa6e23;
+  background:       #0f0f0f;
+  background-light: #1f1f1f;
+  background-focus: #282828;
+  foreground:       #266182;
+  foreground-list:  #009688;
+  on:               #44ad4d;
+  off:              #e34039;
+
+  /* General */
+  confirm-text-font:                    "CaskaydiaCove NF 18";
+  text-font:                            "CaskaydiaCove NF Bold 14";
+  text-font-mono:                       "CaskaydiaCove NF Regular 14";
+  icon-font:                            "CaskaydiaCove NF 50";
+  inputbar-margin:                      4px 4px;
+  prompt-padding:                       10px 10px;
+  entry-padding:                        16px 16px 16px 0px;
+  /* confirmmenu */
+  confirm-window-height:                300px;
+  confirm-window-width:                 627px;
+  confirm-window-border:                2px;
+  confirm-prompt-padding:               20px 30px;
+  confirm-prompt-margin:                8px;
+  confirm-listview-padding:             60px 114px 0px 114px;
+  /* Values bellow are 'no-padding' ones for a size 18 (@confirm-text-font) font, played around using this character: ■
+   * We then add add 30 actual padding around the text.
+   *                                    -4px  -1px  -6px  -28px */
+  confirm-element-padding:              26px  29px  24px  2px;
+  /* option menus: i3layoutmenu, mpdmenu, powermenu and scrotmenu */
+  /**
+   * Values bellow are 'no-padding' ones for a size 60 (@icon-font) font, played around using this character: ■
+   * We then add add 100 actual padding around the icons.
+   *                                    -12px 0px   -19px -96px */
+  option-element-padding:               40px  50px 40px  50px;
+  option-5-window-padding:              50px 150px;
+  option-6-listview-spacing:            55px;
+ 
+  
+  window-bg-color: rgba(15,15,15,0.7);
+  text-color: @foreground;
+  font: @icon-font;
+}
+
+#window {
+  children: [ horibox ];
+  padding: @option-5-window-padding;
+  background-color: @window-bg-color;
+}
+#horibox {
+  children: [ listview ];
+  background-color: transparent;
+}
+#listview {
+  layout: horizontal;
+  spacing: @option-6-listview-spacing;
+  background-color: transparent;
+  lines: 6;
+}
+#element {
+  padding: @option-element-padding;
+  background-color: @background-light;
+}
+#element.selected {
+  background-color: @accent;
+  text-color: @background;
+}
