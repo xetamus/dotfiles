@@ -3,6 +3,13 @@
 set nocompatible
 set shell=/bin/sh
 
+" Install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source ~/.vimrc
+endif
+
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
   if exists("t:expl_buf_num")
@@ -89,31 +96,31 @@ set number
 """""""""""""""""""""""""
 """"Plugin Settings"""""
 """""""""""""""""""""""""
-" Vundle!
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin('~/.vim/plugged')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plug 'gmarik/Vundle.vim'
 " Buffergator
-Plugin 'jeetsukumaran/vim-buffergator'
+Plug 'jeetsukumaran/vim-buffergator'
 " Syntastic
-Plugin 'scrooloose/syntastic'
+Plug 'scrooloose/syntastic'
 " lightline
-Plugin 'itchyny/lightline.vim'
+Plug 'itchyny/lightline.vim'
 " vim-buftabline
-Plugin 'ap/vim-buftabline'
+Plug 'ap/vim-buftabline'
+
+" Syntax Highlighting
+Plug 'sheerun/vim-polyglot'
 
 " Colorschemes
-Plugin 'whatyouhide/gotham'
-Plugin 'gregsexton/Muon'
-Plugin 'w0ng/vim-hybrid'
+Plug 'whatyouhide/gotham'
+Plug 'gregsexton/Muon'
+Plug 'w0ng/vim-hybrid'
+Plug 'srcery-colors/srcery-vim'
+Plug 'patstockwell/vim-monokai-tasty'
 
 " Go!
-"Plugin 'fatih/vim-go'
+"Plug 'fatih/vim-go'
 "let g:syntastic_go_checkers = ['go']
 "let g:go_fmt_command = "goimports"
 "let g:go_highlight_functions = 1
@@ -127,24 +134,24 @@ Plugin 'w0ng/vim-hybrid'
 
 "
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
+"Plug 'L9'
 " Git plugin not hosted on GitHub
-"Plugin 'git://git.wincent.com/command-t.git'
+"Plug 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
+"Plug 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
-"Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+"Plug 'user/L9', {'name': 'newL9'}
 
 " Docker
-"Plugin 'ekalinin/Dockerfile.vim'
+"Plug 'ekalinin/Dockerfile.vim'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
-" end Vundle
+" end
 
 " lightline settings
 set laststatus=2
