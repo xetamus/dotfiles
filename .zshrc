@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR=vim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -113,12 +114,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+if find /usr/share/terminfo -type f | grep xterm-256color > /dev/null; then
+    export TERM=xterm-256color
+else
+    export TERM=xterm
+fi
 
-export REQUESTS_CA_BUNDLE=~/.ssh/oidc.us-west-2.amazonaws.com.crt
-export AWS_CA_BUNDLE=~/.ssh/oidc.us-west-2.amazonaws.com.crt
-export AWS_DEFAULT_OUTPUT=json
-export AWS_DEFAULT_REGION=us-west-2
-export AWS_DEFAULT_SSO_REGION=us-west-2
-export AWS_DEFAULT_SSO_START_URL="https://wapa-portal.awsapps.com/start"
-export AWS_CONFIGURE_SSO_DEFAULT_SSO_START_URL="https://wapa-portal.awsapps.com/start"
-export AWS_CONFIGURE_SSO_DEFAULT_SSO_REGION=us-west-2
+export LD_LIBRARY_PATH=~/lib:${LD_LIBRARY_PATH}
+export PERL5LIB=~/lib/perl:${PERL5LIB}
+export GOPATH=${HOME}/go:${HOME}/work/go
+export PATH=~/bin:${HOME}/go/bin:/usr/local/bin:${PATH}
+
+source <(kubectl completion zsh)
+source <(helm completion zsh)
+source <(minikube completion zsh)
+source <(kind completion zsh)
